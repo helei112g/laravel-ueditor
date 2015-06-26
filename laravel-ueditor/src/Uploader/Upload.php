@@ -182,10 +182,10 @@ abstract class Upload
             "size" => $this->fileSize
         ];
         // 检查是本地，还是qiniu
-        if (config('UEditorUpload.core.mode') == self::QINIU_MODEL) {
+        if (config('ueditor.core.mode') == self::QINIU_MODEL) {
             $info['url'] = $this->fullName;
         } else {
-            $info['url'] = config('UEditorUpload.core.baseurl').$this->fullName;
+            $info['url'] = config('ueditor.core.baseurl').$this->fullName;
         }
         
         return $info;

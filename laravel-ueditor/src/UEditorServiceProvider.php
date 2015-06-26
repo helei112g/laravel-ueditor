@@ -35,7 +35,7 @@ class UEditorServiceProvider extends RouteServiceProvider
 
 
         $this->publishes([
-            realpath(__DIR__ . '/../resources/public') => public_path().'/laravel-u-editor',
+            realpath(__DIR__ . '/../resources/public') => public_path().'/laravel-ueditor',
         ], 'assets');
 
 
@@ -45,12 +45,12 @@ class UEditorServiceProvider extends RouteServiceProvider
         //定义多语言
         //根据系统配置 取得 local
         $locale = str_replace('_', '-', strtolower(config('app.locale')));
-        $file = "/laravel-u-editor/lang/$locale/$locale.js";
+        $file = "/laravel-ueditor/lang/$locale/$locale.js";
         $filePath = public_path().$file;
 
         if (!\File::exists($filePath)) {
             //Default is zh-cn
-            $file = "/laravel-u-editor/lang/zh-cn/zh-cn.js";
+            $file = "/laravel-ueditor/lang/zh-cn/zh-cn.js";
         }
         \View::share('UeditorLangFile', $file);
 
@@ -65,9 +65,9 @@ class UEditorServiceProvider extends RouteServiceProvider
     public function register()
     {
         parent::register();
-        $configPath =realpath(__DIR__ . '/../config/UEditorUpload.php');
-        $this->mergeConfigFrom($configPath, 'UEditorUpload');
-        $this->publishes([$configPath => config_path('UEditorUpload.php')], 'config');
+        $configPath =realpath(__DIR__ . '/../config/ueditor.php');
+        $this->mergeConfigFrom($configPath, 'ueditor');
+        $this->publishes([$configPath => config_path('ueditor.php')], 'config');
 
     }
 
@@ -82,12 +82,12 @@ class UEditorServiceProvider extends RouteServiceProvider
 
         $router = app('router');
         //need add auth
-        $config = config('UEditorUpload.core.route', []);
+        $config = config('ueditor.core.route', []);
         $config['namespace'] = __NAMESPACE__;
 
         //定义路由
         $router->group($config, function ($router) {
-            $router->any('/laravel-u-editor/server', 'Controller@server');
+            $router->any('/laravel-ueditor/server', 'Controller@server');
         });
     }
 

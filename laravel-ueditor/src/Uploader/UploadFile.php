@@ -57,7 +57,7 @@ class UploadFile  extends Upload{
             return false;
         }
 
-        if(config('UEditorUpload.core.mode')==self::LOCAL_MODEL){
+        if(config('ueditor.core.mode')==self::LOCAL_MODEL){
             try {
                 $this->file->move(dirname($this->filePath), $this->fileName);
 
@@ -67,7 +67,7 @@ class UploadFile  extends Upload{
                 return false;
             }
 
-        }else if(config('UEditorUpload.core.mode')==self::QINIU_MODEL){
+        }else if(config('ueditor.core.mode')==self::QINIU_MODEL){
             $content=file_get_contents($this->file->getPathname());
             return $this->uploadQiniu($this->filePath,$content);
 
