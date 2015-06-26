@@ -19,4 +19,17 @@ UEditor是由百度web前端研发部开发所见即所得富文本web编辑器
 
 # 安装
 **前提条件：** php版本>=5.4，项目已安装composer，将php.ini中的extension=php_fileinfo.dll前分号去掉
+```composer
+"riverslei/laravel-ueditor": "*"
+```
+然后运行composer install或者composer update
+
+安装完成后，打开config/app.php配置服务提供者
+```php
+Riverslei\UEditor\UEditorServiceProvider::class,
+```
+最后记得运行
+```artisan
+php artisan vendor:publish
+```
 
