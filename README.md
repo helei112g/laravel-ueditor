@@ -3,6 +3,10 @@ UEditor是由百度web前端研发部开发所见即所得富文本web编辑器
 本项目，是为了支持laravel5，使用的UEditor是php版本的1.4.3
 支持本地和七牛云存储(在配置文件中配置),默认为本地上传 public/uploads
 
+# 修改日志
+v1.0.0 依据参考项目，实现了功能
+v1.0.1 修改了其中路径错误，将其中所有幻数全部使用常量
+
 # 重要提示
 本项目，受益并参考于[stevenyangecho/laravel-u-editor](https://github.com/stevenyangecho/laravel-u-editor)项目。
 而我，仅仅是做了锦上添花的事情
@@ -72,3 +76,6 @@ middleware 相当重要,请根据自己的项目设置,比如如果在后台使�
         });
 </script>
 ```
+
+# 注意
+* 这里UEditor界面显示的语言文件，与 `config/app.php` 中的 `locale` 相关，默认显示为英文，请将其修改为 `'locale' => 'zh-CN'`。同时，请在 `resources/lang` 下面配置对应的中文语言包
