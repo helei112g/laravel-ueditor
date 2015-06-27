@@ -53,8 +53,6 @@ class UEditorServiceProvider extends RouteServiceProvider
             $file = "/laravel-ueditor/lang/zh-cn/zh-cn.js";
         }
         \View::share('UeditorLangFile', $file);
-
-
     }
 
     /**

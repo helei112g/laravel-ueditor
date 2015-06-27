@@ -21,7 +21,7 @@ return [
            // 'middleware' => 'auth',
         ],
 
-        'mode'=>'qiniu',//上传方式,local 为本地   qiniu 为七牛
+        'mode'=>'local',//上传方式,local 为本地   qiniu 为七牛
 		
 		'baseurl'=>'http://localhost/laravel/public',// 设置网站的根路由(可访问到index.php的路由)
 
@@ -30,7 +30,7 @@ return [
             'accessKey'=>'',
             'secretKey'=>'',
             'bucket'=>'',// 使用的七牛空间名称
-            'url'=>'http://xxx.clouddn.com',//七牛分配的CDN域名,注意带上http://
+            'url'=>'http://xxxx.qiniucdn.com',//七牛分配的CDN域名,注意带上http://
 
         ]
     ],

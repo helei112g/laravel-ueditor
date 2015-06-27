@@ -11,13 +11,10 @@ use Riverslei\UEditor\Uploader\UploadCatch;
 
 class Controller extends BaseController
 {
-
-
     public function __construct()
     {
 
     }
-
 
     public function server(Request $request)
     {
@@ -75,33 +72,29 @@ class Controller extends BaseController
 
             /* 列出图片 */
             case 'listimage':
-
-
-                if (config('ueditor.core.mode') == 'local') {
+                if (config('ueditor.core.mode') == UploadFile::LOCAL_MODEL) {
                     $result = with(new Lists(
                         $config['imageManagerAllowFiles'],
                         $config['imageManagerListSize'],
                         $config['imageManagerListPath'],
                         $request))->getList();
-                } else if (config('ueditor.core.mode') == 'qiniu') {
+                } else if (config('ueditor.core.mode') == UploadFile::QINIU_MODEL) {
                     $result = with(new ListsQiniu(
                         $config['imageManagerAllowFiles'],
                         $config['imageManagerListSize'],
                         $config['imageManagerListPath'],
                         $request))->getList();
                 }
-
-
                 break;
             /* 列出文件 */
             case 'listfile':
-                if (config('ueditor.core.mode') == self::LOCAL_MODEL) {
+                if (config('ueditor.core.mode') == UploadFile::LOCAL_MODEL) {
                     $result = with(new Lists(
                         $config['fileManagerAllowFiles'],
                         $config['fileManagerListSize'],
                         $config['fileManagerListPath'],
                         $request))->getList();
-                }else if (config('ueditor.core.mode') == self::QINIU_MODEL) {
+                }else if (config('ueditor.core.mode') == UploadFile::QINIU_MODEL) {
                     $result = with(new ListsQiniu(
                         $config['fileManagerAllowFiles'],
                         $config['fileManagerListSize'],
@@ -141,7 +134,6 @@ class Controller extends BaseController
                     'state' => count($list) ? 'SUCCESS' : 'ERROR',
                     'list' => $list
                 ];
-
 
                 break;
         }
