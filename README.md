@@ -33,35 +33,42 @@ php artisan vendor:publish
 
 # 配置
 若以上安装没问题,自定义项目配置文件会在 config/ueditor.php  (会自动生成)
-        'core' => [
-            'route' => [
+```php
+'core' => [
+        'route' => [
                 'middleware' => 'auth',
-            ],
         ],
-  middleware 相当重要,请根据自己的项目设置,比如如果在后台使用,请设置为后台的auth middleware.
-  如果是单纯本机测试,请将 
-  `// 'middleware' => 'auth',` 直接注释掉,如果留 `'middleware'=>''`空值,会产生bug,原因不详.
+],
+```
+middleware 相当重要,请根据自己的项目设置,比如如果在后台使用,请设置为后台的auth middleware.
+如果是单纯本机测试,请将 
+`// 'middleware' => 'auth',` 直接注释掉,如果留 `'middleware'=>''`空值,会产生bug,原因不详.
  
- 所有UEditor 的官方资源,会放在 public/laravel-ueditor/ ,可以根据自己的需求,更改.(我已重新写了iframe.css，已让上传的内容自适应)
- 
- 
- # 如何使用
- 首先在要使用的页面添加
- @include('UEditor::head')
- 这个头部文件主要是引入需要的资源文件。然后在要使用的地方，添加如下代码：
- <!-- 加载编辑器的容器 -->
-    <script id="container" name="content" type="text/plain">
+所有UEditor 的官方资源,会放在 public/laravel-ueditor/ ,可以根据自己的需求,更改.(我已重新写了iframe.css，已让上传的内容自适应)
+
+
+# 如何使用
+首先在要使用的页面添加
+```blad
+@include('UEditor::head')
+```
+这个头部文件主要是引入需要的资源文件。然后在要使用的地方，添加如下代码：
+<!-- 加载编辑器的容器 -->
+```js
+<script id="container" name="content" type="text/plain">
         这里写你的初始化内容
-    </script>
-
-    <!-- 实例化编辑器 -->
-    <script type="text/javascript">
+</script>
+```
+<!-- 实例化编辑器 -->
+```js
+<script type="text/javascript">
         var ue = UE.getEditor('container'，{
-          initialFrameWidth : 500,
-          initialFrameHeight : 450,
+                initialFrameWidth : 500,
+                initialFrameHeight : 450,
         });
-            ue.ready(function() {
-            ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');//此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值.    
+        ue.ready(function() {
+                //此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值. 
+                ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');   
         });
-    </script>
-
+</script>
+```
