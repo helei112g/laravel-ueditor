@@ -4,8 +4,8 @@ UEditor是由百度web前端研发部开发所见即所得富文本web编辑器
 支持本地和七牛云存储(在配置文件中配置),默认为本地上传 public/uploads
 
 # 修改日志
-v1.0.0 依据参考项目，实现了功能
-v1.0.1 修改了其中路径错误，将其中所有幻数全部使用常量
+* v1.0.0 依据参考项目，实现了功能
+* v1.0.1 修改了其中路径错误，将其中所有幻数全部使用常量
 
 # 重要提示
 本项目，受益并参考于[stevenyangecho/laravel-u-editor](https://github.com/stevenyangecho/laravel-u-editor)项目。
