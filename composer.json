@@ -1,33 +1,31 @@
 {
-  "name": "riverslei/laravel-ueditor",
-  "description": "支持laravel5的UEditor，同时支持本地与七牛文件上传",
-  "keywords": [
-    "laravel5",
-    "ueditor",
-    "laravel-ueditor",
-	"baidu ueditor",
-    "laravel5 富文本编辑器",
-    "qiniu"
-  ],
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "riverslei",
-      "email": "helei5200@126.com"
-    }
-  ],
-
-  "require": {
-    "php": ">=5.4.0",
-	"ext-fileinfo": "*",
-    "illuminate/support": "5.0.*|5.1.x",
-    "qiniu/php-sdk": "7.0.*"
-  },
-  "autoload": {
-    "psr-4": {
-      "Riverslei\\UEditor\\": "src/"
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+	"name": "riverslei/laravel-ueditor",
+	"description": "支持laravel5的UEditor，同时支持本地与七牛文件上传",
+	"type": "library",
+	"keywords": [
+  		"laravel5",
+  		"ueditor",
+  		"laravel-ueditor",
+  		"baidu ueditor",
+  		"laravel5 富文本编辑器",
+  		"qiniu"
+  	],
+  	"license": "MIT",
+  	"authors": [{
+      		"name": "helei112g",
+      		"email": "helei5200@126.com"
+    	}],
+  	"require": {
+    		"php": ">=5.4.0",
+		"ext-fileinfo": "*",
+    		"illuminate/support": "5.0.*|5.1.x",
+    		"qiniu/php-sdk": "7.0.*"
+  	},
+  	"autoload": {
+    		"psr-4": {
+      			"Riverslei\\UEditor\\": "src/"
+    		}
+  	},
+  	"minimum-stability": "dev",
+  	"prefer-stable": true
 }
