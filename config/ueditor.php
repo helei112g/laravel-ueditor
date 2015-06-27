@@ -27,8 +27,8 @@ return [
 
         //七牛配置,若mode='qiniu',以下为必填.
         'qiniu'=>[
-            'accessKey'=>'45ZEulWriLRzq_NCIpmNTBRNWGzLMdmRPEj-WglA',
-            'secretKey'=>'Rq1jxlcknGB0GA6PI-33UdnLfzE_GQR9aGGK6gcL',
+            'accessKey'=>'',
+            'secretKey'=>'',
             'bucket'=>'',// 使用的七牛空间名称
             'url'=>'http://xxx.clouddn.com',//七牛分配的CDN域名,注意带上http://
 
