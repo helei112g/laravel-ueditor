@@ -4,8 +4,9 @@ UEditor是由百度web前端研发部开发所见即所得富文本web编辑器
 支持本地和七牛云存储(在配置文件中配置),默认为本地上传 public/uploads
 
 # 修改日志
-* v1.0.0 依据参考项目，实现了功能
+* v1.1.0 增加了测试视图文件，修改了head视图错误路径
 * v1.0.1 修改了其中路径错误，将其中所有幻数全部使用常量
+* v1.0.0 依据参考项目，实现了功能
 
 # 重要提示
 本项目，受益并参考于[stevenyangecho/laravel-u-editor](https://github.com/stevenyangecho/laravel-u-editor)项目。
@@ -51,31 +52,21 @@ middleware 相当重要,请根据自己的项目设置,比如如果在后台使�
 所有UEditor 的官方资源,会放在 public/laravel-ueditor/ ,可以根据自己的需求,更改.(我已重新写了iframe.css，已让上传的内容自适应)
 
 
-# 如何使用
-首先在要使用的页面添加
-```blad
-@include('UEditor::head')
+# 如何使用测试文件
+执行完以后步骤后，会在resources/views/vendor/UEditor中看到test.blade.php文件，
+现在需要做以下几步操作
+* 写一个控制器，在里边添加显示该视图的操作，我使用HomeController，代码
+```php
+public function index()
+{
+return view('vendor.UEditor.test');
+}
 ```
-这个头部文件主要是引入需要的资源文件。然后在要使用的地方，添加如下代码：
-<!-- 加载编辑器的容器 -->
-```js
-<script id="container" name="content" type="text/plain">
-        这里写你的初始化内容
-</script>
+* 添加路由，访问该控制器
+```php
+Route::get('/', 'HomeController@index');
 ```
-<!-- 实例化编辑器 -->
-```js
-<script type="text/javascript">
-        var ue = UE.getEditor('container'，{
-                initialFrameWidth : 500,
-                initialFrameHeight : 450,
-        });
-        ue.ready(function() {
-                //此处为支持laravel5 csrf ,根据实际情况修改,目的就是设置 _token 值. 
-                ue.execCommand('serverparam', '_token', '{{ csrf_token() }}');   
-        });
-</script>
-```
+* 在浏览器中运行项目的根目录，即可。
 
 # 注意
 * 这里UEditor界面显示的语言文件，与 `config/app.php` 中的 `locale` 相关，默认显示为英文，请将其修改为 `'locale' => 'zh-CN'`。同时，请在 `resources/lang` 下面配置对应的中文语言包
