@@ -14,7 +14,7 @@ class UEditorServiceProvider extends RouteServiceProvider
      *
      * @var bool
      */
-    protected $defer = true;
+    protected $defer = false;
 
     /**
      * Bootstrap the application events.
@@ -96,7 +96,7 @@ class UEditorServiceProvider extends RouteServiceProvider
      */
     public function provides()
     {
-		return [];
+
     }
 
 }
